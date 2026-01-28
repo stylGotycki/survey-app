@@ -28,8 +28,8 @@ public class AbstractBaseService<T, ID> implements BaseService<T, ID> {
     }
 
     @Override
-    public T save(T entity) {
-        return repository.save(entity);
+    public void save(T entity) {
+        repository.save(entity);
     }
 
     @Override

@@ -8,7 +8,7 @@ public interface BaseService<T, ID> {
 
     boolean existsById(ID id);
 
-    T save(T entity);
+    void save(T entity);
 
     void delete(T entity);
 

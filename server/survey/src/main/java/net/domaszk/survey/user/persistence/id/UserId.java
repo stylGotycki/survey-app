@@ -1,26 +1,17 @@
 package net.domaszk.survey.user.persistence.id;
 
+import jakarta.persistence.Embeddable;
 import lombok.*;
-import net.domaszk.survey.common.base.Id;
-import net.domaszk.survey.user.persistence.entity.UserEntity;
 
+import java.io.Serializable;
 import java.util.UUID;
 
+@Embeddable
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(staticName = "of")
 @Data
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-public class UserId extends Id<UserEntity> {
+public class UserId implements Serializable {
 
-    public UserId(UUID id) {
-        super(id);
-    }
+    private UUID value;
 
-    public static UserId of(UUID id) {
-        return new UserId(id);
-    }
-
-
-    public static UserId of(UserEntity entity) {
-        return new UserId(entity.getId());
-    }
 }

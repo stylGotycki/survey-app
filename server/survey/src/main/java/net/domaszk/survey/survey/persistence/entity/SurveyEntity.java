@@ -23,8 +23,9 @@ public class SurveyEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false, name="creator_id")
-    private UUID creator;
+    @Embedded
+    @AttributeOverride(name = "value", column = @Column(name = "creator_id", nullable = false))
+    private UserId creator;
 
     @Column(unique = true, nullable = false, length = 128)
     private String name;
