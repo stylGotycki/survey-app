@@ -10,6 +10,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
+@Table(name="users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,5 +33,6 @@ public class UserEntity {
     @Column(name="last_login")
     private Instant lastLogin;
 
+    @Builder.Default
     private boolean active = false;
 }

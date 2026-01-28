@@ -10,7 +10,6 @@ import net.domaszk.survey.user.domain.service.api.UserService;
 import net.domaszk.survey.user.rest.mapper.UserRestMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.net.URI;
 import java.util.UUID;
 

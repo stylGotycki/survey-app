@@ -9,7 +9,7 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @EqualsAndHashCode(callSuper = false)
 @Builder
-public abstract class IterableDto<T> {
+public class IterableDto<T> {
 
     @Singular
     private List<T> items;

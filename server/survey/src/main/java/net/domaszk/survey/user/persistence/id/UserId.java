@@ -9,13 +9,11 @@ import java.util.UUID;
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@Builder
 public class UserId extends Id<UserEntity> {
 
     public UserId(UUID id) {
         super(id);
     }
-
 
     public static UserId of(UUID id) {
         return new UserId(id);

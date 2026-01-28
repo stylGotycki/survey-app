@@ -7,11 +7,11 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
-@Builder
 @EqualsAndHashCode(callSuper = false)
 public abstract class Id<E> {
 
-    private final UUID id;
+    protected UUID id;
 
 }
