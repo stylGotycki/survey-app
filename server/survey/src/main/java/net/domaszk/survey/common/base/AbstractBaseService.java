@@ -5,7 +5,6 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-@Transactional
 @RequiredArgsConstructor
 public class AbstractBaseService<T, ID> implements BaseService<T, ID> {
 
@@ -28,11 +27,13 @@ public class AbstractBaseService<T, ID> implements BaseService<T, ID> {
     }
 
     @Override
+    @Transactional
     public void save(T entity) {
         repository.save(entity);
     }
 
     @Override
+    @Transactional
     public void delete(T entity) {
         repository.delete(entity);
     }
