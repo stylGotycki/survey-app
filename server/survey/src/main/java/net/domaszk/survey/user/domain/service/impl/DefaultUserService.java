@@ -27,10 +27,11 @@ public class DefaultUserService extends AbstractBaseService<UserEntity, UUID> im
     }
 
     @Override
+    @Transactional
     public void delete(UserEntity entity) {
         super.delete(entity);
         eventPublisher.publishEvent(new UserDeletedEvent(UserId.of(entity.getId())));
-        System.out.println("DELETED SURVEYS WHICH REFERENCED USER 1");
+        System.out.println("[User Service] User deleted, id: " + entity.getId());
     }
 
     @Override
