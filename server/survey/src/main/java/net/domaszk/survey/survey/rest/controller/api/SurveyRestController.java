@@ -2,6 +2,7 @@ package net.domaszk.survey.survey.rest.controller.api;
 
 
 import net.domaszk.survey.common.rest.IterableDto;
+import net.domaszk.survey.survey.rest.dto.SurveyCreateDto;
 import net.domaszk.survey.survey.rest.dto.SurveyDto;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +21,11 @@ public interface SurveyRestController {
 
 
     @PostMapping(path="/api/surveys", consumes = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Void> addSurvey(@RequestBody SurveyDto surveyDto);
+    ResponseEntity<Void> addSurvey(@RequestBody SurveyCreateDto dto);
 
 
-    @PutMapping(path="/api/surveys", consumes = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Void> updateSurvey(@RequestBody SurveyDto surveyDto);
+    @PutMapping(path="/api/surveys/{surveyId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<Void> updateSurvey(@PathVariable UUID surveyId, @RequestBody SurveyCreateDto dto);
 
 
     @DeleteMapping(path="/api/surveys/{surveyId}")

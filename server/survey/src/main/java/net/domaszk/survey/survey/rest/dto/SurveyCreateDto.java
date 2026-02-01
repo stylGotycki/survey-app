@@ -1,10 +1,12 @@
 package net.domaszk.survey.survey.rest.dto;
 
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
 
+
+//todo: rename to something more significant
 public record SurveyCreateDto(
-        @Size() String name,
-        @Size() String creator,
-        @Size() String description
+        @NotNull String name,
+        @NotNull String creator,
+        @NotNull String description
 ) {
 }
