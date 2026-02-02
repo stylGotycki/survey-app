@@ -1,10 +1,11 @@
-package net.domaszk.survey.question.entity;
+package net.domaszk.survey.question.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.domaszk.survey.user.persistence.id.UserId;
 
 import java.util.UUID;
 
@@ -14,11 +15,14 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Question {
+public class QuestionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @AttributeOverride(name = "value", column = @Column(name = "creator_id", nullable = false))
+    private UserId creator;
 
     @Column(nullable = false, length = 128)
     private String name;
@@ -26,13 +30,10 @@ public class Question {
     @Column(nullable = false, length = 1024)
     private String content;
 
-    @Column(nullable = false)
     private int minValue;
 
-    @Column(nullable = false)
     private int maxValue;
 
-    @Column(nullable = false)
     private int step;
 
     @Column(nullable = false)
