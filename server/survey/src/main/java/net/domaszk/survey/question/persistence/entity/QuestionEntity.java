@@ -30,12 +30,6 @@ public class QuestionEntity {
     @Column(nullable = false, length = 1024)
     private String content;
 
-    private int minValue;
-
-    private int maxValue;
-
-    private int step;
-
     @Column(nullable = false)
     private QuestionType type;
 
